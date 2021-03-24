@@ -12,18 +12,17 @@
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12 col-sm-9">
                 <div class="jumbotron">
-                    <h2><%- currentUser?.email || 'Khach' %></h2>
-                    <h1>Tính tổng</h1>
+                    <h1>Login</h1>
                     <form method="POST">
                         <div class="form-group">
-                          <label for="num1">Số thứ nhất</label>
-                          <input type="number" class="form-control" id="num1" name="num1">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <div class="form-group">
-                          <label for="num2">Số thứ hai</label>
-                          <input type="number" class="form-control" id="num2" name="num2">
+                          <label for="password">Password</label>
+                          <input type="password" class="form-control" id="password" name="password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Tính tổng</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
                       </form>
                 </div>
             </div>
