@@ -8,6 +8,7 @@ var app = express();
 var bodyParser = require('body-parser');
 const sumRouter = require('./routers/sum');
 const loginRouter = require('./routers/auth');
+const todoRouter = require('./routers/todo');
 
 // SESSION
 app.use(cookieSession({
@@ -17,7 +18,7 @@ app.use(cookieSession({
 }))
 
 app.use(authMiddleware);
-
+app.use(express.static(__dirname + '/assets'));
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -34,6 +35,7 @@ app.get('/view', (req, res) => {
 
 app.use('/sum', sumRouter);
 app.use('/auth', loginRouter);
+app.use('/todo', todoRouter);
 
 const PORT = process.env.PORT || 3000;
 
