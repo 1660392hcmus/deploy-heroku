@@ -34,7 +34,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 // index page
 app.get('/', function(req, res) {
-    res.render('pages/index', {list: req.session.todoList || todoModel.todoList});
+    res.render('auth/login');
 });
 
 app.get('/view', (req, res) => {
