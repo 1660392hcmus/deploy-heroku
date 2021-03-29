@@ -9,13 +9,11 @@ router.get('/', function(req, res){
   if(!req.session.todoList){
     req.session.todoList = todoModel.getNewTodoList();
   }
-  console.log("🚀 ~ file: todo.js ~ line 13 ~ router.get ~ req.session.todoList", req.session.todoList)
-
     res.render('todo/index', {todoList: req.session.todoList});
   })
 
 router.post('/', function(req, res){
-  const {myTodo} = req.body;
+  const { myTodo } = req.body;
   todoModel.addTodo(myTodo);
   req.session.todoList = todoModel.todoList;  
   res.render('todo/index', {todoList: req.session.todoList});
