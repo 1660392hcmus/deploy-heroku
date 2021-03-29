@@ -16,6 +16,13 @@ app.use(cookieSession({
   keys: [process.env.COOKIE_KEY || 'secret'],
   maxAge: 24 * 60 * 60 * 1000,
 }))
+// .use(function(req, res, next){
+//   if (typeof(req.session.todoList) == 'undefined') {
+//       req.session.todoList = [];
+//   }
+//   next();
+// })
+
 
 app.use(authMiddleware);
 app.use(express.static(__dirname + '/assets'));

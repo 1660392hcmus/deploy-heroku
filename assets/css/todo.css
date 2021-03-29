@@ -15,6 +15,7 @@ body {
   ul {
     margin: 0;
     padding: 0;
+    padding-left: 0px !important;
   }
   
   /* Style the list items */
@@ -80,7 +81,7 @@ body {
   
   /* Style the header */
   .header {
-    background-color: #f44336;
+    background-color: black;
     padding: 30px 40px;
     color: white;
     text-align: center;

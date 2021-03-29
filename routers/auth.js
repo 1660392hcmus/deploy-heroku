@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Users =  require('../models/user');
+const todoModel = require('../models/todo');
 
 router.get('/login', function(req, res){
     res.render('auth/login');
@@ -11,7 +12,7 @@ router.post('/login', function(req, res){
     const found = Users.findByEmail(email);
     if (found && found.password == password){
         req.session.userId = found.id;
-        res.redirect('/sum');
+        res.redirect('/todo');
     } else {
         res.render('auth/login');
     }
@@ -19,7 +20,10 @@ router.post('/login', function(req, res){
 
 router.get('/logout', (req, res) => {
     delete req.session.userId;
-    res.redirect('/sum');
+    delete req.session.todoList;
+    todoModel.clearList();
+    res.redirect('login');
+    console.log("🚀 ~ file: auth.js ~ line 27 ~ router.get ~ req.session.todoList", req.session.todoList)
 })
 
 module.exports = router;
