@@ -62,13 +62,13 @@
     <script>
       function moveTask (event, id){
         const {name} = event.target;
-        const data = {name: name, id: id};
+        const data = {name: name, id: parseInt(id)};
         fetch("http://localhost:3000/todo/moveTaskDone", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
-          body: data
+          body: JSON.stringify(data)
         }).then(response => response.json()).then(status=> {
           console.log(status);
           window.location.reload()

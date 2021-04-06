@@ -2,12 +2,7 @@ const kenx = require("knex");
 
 const db = kenx({
     client: "pg",
-    connection: {
-      host: "127.0.0.1",
-      user: "postgres",
-      password: "12345",
-      database: "1660392-db"
-    }
+    connection: process.env.DATABASE_URL || 'postgres://postgres:12345@localhost:5432/1660392-db',
   });
 
 module.exports = db;
