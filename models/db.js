@@ -2,8 +2,14 @@ const kenx = require("knex");
 
 const db = kenx({
     client: "pg",
-    connection: process.env.HEROKU_POSTGRESQL_NAVY_URL || 'postgres://postgres:12345@localhost:5432/1660392-db',
-    ssl: { rejectUnauthorized : false }
+    connection: process.env.HEROKU_POSTGRESQL_NAVY_URL || {
+      host: "localhost",
+      port: "5432",
+      user: "postgres",
+      password: "12345",
+      database: "1660392-db",
+      ssl: false
+    }
   });
 
 module.exports = db;
